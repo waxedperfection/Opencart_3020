@@ -185,8 +185,6 @@ class ControllerInformationContact extends Controller {
 			'href' => $this->url->link('information/contact')
 		);
 
-		$data['text_message'] = $this->language->get('text_success');
-
 		$data['continue'] = $this->url->link('common/home');
 
 		if (!empty($this->session->data['success'])) {
