@@ -185,13 +185,8 @@ class ControllerInformationContact extends Controller {
 			'href' => $this->url->link('information/contact')
 		);
 
+		$data['text_success'] = $this->language->get('text_success');
 		$data['continue'] = $this->url->link('common/home');
-
-		if (!empty($this->session->data['success'])) {
-			$data['text_success'] = $this->language->get('text_success');
-			
-			unset ($this->session->data['success']);
-		}
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
