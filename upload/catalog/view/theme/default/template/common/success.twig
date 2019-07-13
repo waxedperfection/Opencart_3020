@@ -5,9 +5,6 @@
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
     {% endfor %}
   </ul>
-  {% if text_success %}
-  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ text_success }}</div>
-  {% endif %}
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
