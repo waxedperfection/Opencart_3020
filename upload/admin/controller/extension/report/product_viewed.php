@@ -122,7 +122,7 @@ class ControllerExtensionReportProductViewed extends Controller {
 		$pagination->total = $product_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('report/report', 'user_token=' . $this->session->data['user_token'] . '&code=product_viewed&page={page}', true);
+		$data['reset'] = $this->url->link('extension/report/product_viewed/reset', 'user_token=' . $this->session->data['user_token'], true);
 
 		$data['pagination'] = $pagination->render();
 
