@@ -6,7 +6,6 @@
  * @license		https://opensource.org/licenses/GPL-3.0
  * @link		https://www.opencart.com
 */
-
 /**
 * Document class
 */
@@ -17,65 +16,62 @@ class Document {
 	private $links = array();
 	private $styles = array();
 	private $scripts = array();
-
+	private $image;
+	private $url;
+	private $type;
+	private $price;
 	/**
-     * 
+     *
      *
      * @param	string	$title
      */
 	public function setTitle($title) {
 		$this->title = $title;
 	}
-
 	/**
-     * 
-	 * 
+     *
+	 *
 	 * @return	string
      */
 	public function getTitle() {
 		return $this->title;
 	}
-
 	/**
-     * 
+     *
      *
      * @param	string	$description
      */
 	public function setDescription($description) {
 		$this->description = $description;
 	}
-
 	/**
-     * 
+     *
      *
      * @param	string	$description
-	 * 
+	 *
 	 * @return	string
      */
 	public function getDescription() {
 		return $this->description;
 	}
-
 	/**
-     * 
+     *
      *
      * @param	string	$keywords
      */
 	public function setKeywords($keywords) {
 		$this->keywords = $keywords;
 	}
-
 	/**
      *
-	 * 
+	 *
 	 * @return	string
      */
 	public function getKeywords() {
 		return $this->keywords;
 	}
-	
 	/**
-     * 
+     *
      *
      * @param	string	$href
 	 * @param	string	$rel
@@ -86,18 +82,16 @@ class Document {
 			'rel'  => $rel
 		);
 	}
-
 	/**
-     * 
-	 * 
+     *
+	 *
 	 * @return	array
      */
 	public function getLinks() {
 		return $this->links;
 	}
-
 	/**
-     * 
+     *
      *
      * @param	string	$href
 	 * @param	string	$rel
@@ -110,36 +104,33 @@ class Document {
 			'media' => $media
 		);
 	}
-
 	/**
-     * 
-	 * 
+     *
+	 *
 	 * @return	array
      */
 	public function getStyles() {
 		return $this->styles;
 	}
-
 	/**
-     * 
+     *
      *
      * @param	string	$href
-	 * @param	string	$postion
+	 * @param	string	$position
      */
-	public function addScript($href, $postion = 'header') {
-		$this->scripts[$postion][$href] = $href;
+	public function addScript($href, $position = 'header') {
+		$this->scripts[$position][$href] = $href;
 	}
-
 	/**
-     * 
      *
-     * @param	string	$postion
-	 * 
+     *
+     * @param	string	$position
+	 *
 	 * @return	array
      */
-	public function getScripts($postion = 'header') {
-		if (isset($this->scripts[$postion])) {
-			return $this->scripts[$postion];
+	public function getScripts($position = 'header') {
+		if (isset($this->scripts[$position])) {
+			return $this->scripts[$position];
 		} else {
 			return array();
 		}
