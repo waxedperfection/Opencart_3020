@@ -59,7 +59,7 @@
         <select name="EWAY_CARDEXPIRYMONTH" id="eway-card-expiry-month" class="form-control">
           
           
-					% for month in months %}
+					{% for month in months %}
 						
           
           <option value="{{ month.value }}">{{ month.text }}</option>
@@ -74,7 +74,7 @@
         <select name="EWAY_CARDEXPIRYYEAR" id="eway-card-expiry-year" class="form-control">
           
           
-					% for year in year_expire %}
+					{% for year in year_expire %}
 						
           
           <option value="{{ year.value }}">{{ year.text }}</option>
