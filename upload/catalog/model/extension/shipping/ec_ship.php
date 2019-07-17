@@ -101,7 +101,7 @@ class ModelExtensionShippingECShip extends Model {
 			'GUY'                            => 'GYA',
 			'HTI'                            => 'HTA',
 			'HND'                            => 'HNA',
-			'HKG'							 => 'HKG',
+			'HKG'				 => 'HKG',
 			'HUN'                            => 'HUA',
 			'ISL'                            => 'ISA',
 			'IND'                            => 'INA',
@@ -152,7 +152,7 @@ class ModelExtensionShippingECShip extends Model {
 			'NRU'                            => 'NRA',
 			'NPL'                            => 'NPA',
 			'NLD'                            => 'NLA',
-			'ANT' 				             => 'ANA',
+			'ANT' 				 => 'ANA',
 			'NCL'                            => 'NCA',
 			'NZL'                            => 'NZA',
 			'NIC'                            => 'NIA',
@@ -426,11 +426,7 @@ class ModelExtensionShippingECShip extends Model {
 				$error = $this->language->get('text_unavailable');
 			}
 
-			if (!$this->config->get('shipping_ec_ship_test')) {
-				$url = 'https://www.ec-ship.hk/API/services/Calculator?wsdl';
-			} else {
-				$url = 'http://www.ec-ship.hk/API-trial/services/Calculator?wsdl';
-			}
+			$url = 'https://service.hongkongpost.hk/API-trial/services/Calculator?wsdl';
 
 			// Creating date using yyyy-mm-ddThh:mm:ssZ format
 			$tm_created = gmdate('Y-m-d\TH:i:s\Z');
