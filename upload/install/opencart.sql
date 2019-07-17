@@ -3624,28 +3624,6 @@ CREATE TABLE `oc_upload` (
 -----------------------------------------------------------
 
 --
--- Dumping data for table `oc_seo_regex`
---
-
-INSERT INTO `oc_seo_regex` (`name`, `regex`, `sort_order`) VALUES
-('Product', '(product_id=\\d+)(?:[&]|$)', 100),
-('Category Level 1', '(path=\\d+)(?:[_&]|$)', 1),
-('Category Level 2', '(path=\\d+_\\d+)(?:[_&]|$)', 2),
-('Category Level 3', '(path=\\d+_\\d+_\\d+)(?:[_&]|$)', 3),
-('Information', '(information_id=\\d+)(?:[&]|$)', 1),
-('Manufacturer', '(manufacturer_id=\\d+)(?:[&]|$)', 2),
-('Language', '(language=[a-z-]+)(?:[&]|$)', -1),
-('Route', '(route=[a-zA-Z0-9\\/]+)(?:[&]|$)', 0),
-('Category Level 4', '(path=\\d+_\\d+_\\d+_\\d+)(?:[_&]|$)', 4),
-('Category Level 5', '(path=\\d+_\\d+_\\d+_\\d+_\\d+)(?:[_&]|$)', 5),
-('Manufacturer', '(manufacturer_id=)', 1),
-('Information', '(information_id=)', 1),
-('Category', '(path=)', 1),
-('Product', '(product_id=)', 99);
-
------------------------------------------------------------
-
---
 -- Table structure for table `oc_seo_url`
 --
 
