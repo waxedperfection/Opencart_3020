@@ -72,6 +72,6 @@ Please read the installation instructions included in the repository or download
 - [OpenCart homepage](https://www.opencart.com/)
 - [OpenCart forums](https://forum.opencart.com/)
 - [OpenCart blog](https://www.opencart.com/index.php?route=feature/blog)
-- [How to documents](https://docs.opencart.com/)
+- [How to documents](http://docs.opencart.com/en-gb/introduction/)
 - [Newsletter](https://newsletter.opencart.com/h/r/B660EBBE4980C85C)
 - [User Voice suggestions](https://opencart.uservoice.com)
