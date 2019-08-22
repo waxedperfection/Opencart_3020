@@ -228,25 +228,13 @@
                   <label class="col-sm-2 control-label" for="input-order-status">{{ entry_order_status }}</label>
                   <div class="col-sm-10">
                     <select name="order_status_id" id="input-order-status" class="form-control">
-                      
-                      
                       {% for order_statuses in order_statuses %}
                       {% if order_statuses.order_status_id == order_status_id %}
-                      
-                      
                       <option value="{{ order_statuses.order_status_id }}" selected="selected">{{ order_statuses.name }}</option>
-                      
-                      
                       {% else %}
-                      
-                      
                       <option value="{{ order_statuses.order_status_id }}">{{ order_statuses.name }}</option>
-                      
-                      
                       {% endif %}
                       {% endfor %}
-                    
-                    
                     </select>
                   </div>
                 </div>
@@ -378,8 +366,8 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript"><!--
-$(document).delegate('#button-invoice', 'click', function() {
+<script type="text/javascript"><!--
+$(document).on('click', '#button-invoice', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/createinvoiceno&user_token={{ user_token }}&order_id={{ order_id }}',
 		dataType: 'json',
@@ -408,7 +396,7 @@ $(document).delegate('#button-invoice', 'click', function() {
 	});
 });
 
-$(document).delegate('#button-reward-add', 'click', function() {
+$(document).on('click', '#button-reward-add', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/addreward&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -427,7 +415,7 @@ $(document).delegate('#button-reward-add', 'click', function() {
 			}
 
 			if (json['success']) {
-                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-reward-add').replaceWith('<button id="button-reward-remove" data-toggle="tooltip" title="{{ button_reward_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-minus-circle"></i></button>');
 			}
@@ -438,7 +426,7 @@ $(document).delegate('#button-reward-add', 'click', function() {
 	});
 });
 
-$(document).delegate('#button-reward-remove', 'click', function() {
+$(document).on('click', '#button-reward-remove', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/removereward&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -457,7 +445,7 @@ $(document).delegate('#button-reward-remove', 'click', function() {
 			}
 
 			if (json['success']) {
-                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-reward-remove').replaceWith('<button id="button-reward-add" data-toggle="tooltip" title="{{ button_reward_add }}" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i></button>');
 			}
@@ -468,7 +456,7 @@ $(document).delegate('#button-reward-remove', 'click', function() {
 	});
 });
 
-$(document).delegate('#button-commission-add', 'click', function() {
+$(document).on('click', '#button-commission-add', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/addcommission&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -487,7 +475,7 @@ $(document).delegate('#button-commission-add', 'click', function() {
 			}
 
 			if (json['success']) {
-                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-commission-add').replaceWith('<button id="button-commission-remove" data-toggle="tooltip" title="{{ button_commission_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-minus-circle"></i></button>');
 			}
@@ -498,7 +486,7 @@ $(document).delegate('#button-commission-add', 'click', function() {
 	});
 });
 
-$(document).delegate('#button-commission-remove', 'click', function() {
+$(document).on('click', '#button-commission-remove', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/removecommission&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -517,7 +505,7 @@ $(document).delegate('#button-commission-remove', 'click', function() {
 			}
 
 			if (json['success']) {
-                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-commission-remove').replaceWith('<button id="button-commission-add" data-toggle="tooltip" title="{{ button_commission_add }}" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i></button>');
 			}
@@ -528,7 +516,7 @@ $(document).delegate('#button-commission-remove', 'click', function() {
 	});
 });
 
-$('#history').delegate('.pagination a', 'click', function(e) {
+$('#history').on('click', '.pagination a', function(e) {
 	e.preventDefault();
 
 	$('#history').load(this.href);
@@ -541,7 +529,7 @@ $('#button-history').on('click', function() {
 		url: '{{ catalog }}index.php?route=api/order/history&api_token={{ api_token }}&store_id={{ store_id }}&order_id={{ order_id }}',
 		type: 'post',
 		dataType: 'json',
-		data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + ($('input[name=\'notify\']').prop('checked') ? 1 : 0) + '&override=' + ($('input[name=\'override\']').prop('checked') ? 1 : 0) + '&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),
+		data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + $('input[name=\'notify\']:checked').val() + '&override=' + $('input[name=\'override\']:checked').val() + '&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),
 		beforeSend: function() {
 			$('#button-history').button('loading');
 		},
@@ -568,6 +556,5 @@ $('#button-history').on('click', function() {
 		}
 	});
 });
-//--></script> 
-</div>
-{{ footer }} 
+//--></script>
+{{ footer }}
