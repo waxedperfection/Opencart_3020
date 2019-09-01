@@ -25,7 +25,14 @@ class ControllerCommonDashboard extends Controller {
 		} else {
 			$data['error_install'] = '';
 		}
-		
+
+		// Check install directory exists
+		if (is_dir(DIR_CATALOG . '../install')) {
+			$data['error_install'] = $this->language->get('error_install');
+		} else {
+			$data['error_install'] = '';
+		}
+
 		// Dashboard Extensions
 		$dashboards = array();
 
