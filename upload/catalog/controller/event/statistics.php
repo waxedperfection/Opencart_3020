@@ -4,7 +4,7 @@ class ControllerEventStatistics extends Controller {
 	public function addReview(&$route, &$args, &$output) {
 		$this->load->model('report/statistics');
 
-		$this->model_report_statistics->addValue('review', 1);	
+		$this->model_report_statistics->addValue('review', 1);
 	}
 		
 	// catalog/model/account/return/addReturn/after
