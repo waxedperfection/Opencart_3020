@@ -366,8 +366,8 @@
       </div>
     </div>
   </div>
-<script type="text/javascript"><!--
-$(document).on('click', '#button-invoice', function() {
+  <script type="text/javascript"><!--
+$(document).delegate('#button-invoice', 'click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/createinvoiceno&user_token={{ user_token }}&order_id={{ order_id }}',
 		dataType: 'json',
@@ -396,7 +396,7 @@ $(document).on('click', '#button-invoice', function() {
 	});
 });
 
-$(document).on('click', '#button-reward-add', function() {
+$(document).delegate('#button-reward-add', 'click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/addreward&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -415,7 +415,7 @@ $(document).on('click', '#button-reward-add', function() {
 			}
 
 			if (json['success']) {
-				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-reward-add').replaceWith('<button id="button-reward-remove" data-toggle="tooltip" title="{{ button_reward_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-minus-circle"></i></button>');
 			}
@@ -426,7 +426,7 @@ $(document).on('click', '#button-reward-add', function() {
 	});
 });
 
-$(document).on('click', '#button-reward-remove', function() {
+$(document).delegate('#button-reward-remove', 'click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/removereward&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -445,7 +445,7 @@ $(document).on('click', '#button-reward-remove', function() {
 			}
 
 			if (json['success']) {
-				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-reward-remove').replaceWith('<button id="button-reward-add" data-toggle="tooltip" title="{{ button_reward_add }}" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i></button>');
 			}
@@ -456,7 +456,7 @@ $(document).on('click', '#button-reward-remove', function() {
 	});
 });
 
-$(document).on('click', '#button-commission-add', function() {
+$(document).delegate('#button-commission-add', 'click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/addcommission&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -475,7 +475,7 @@ $(document).on('click', '#button-commission-add', function() {
 			}
 
 			if (json['success']) {
-				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-commission-add').replaceWith('<button id="button-commission-remove" data-toggle="tooltip" title="{{ button_commission_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-minus-circle"></i></button>');
 			}
@@ -486,7 +486,7 @@ $(document).on('click', '#button-commission-add', function() {
 	});
 });
 
-$(document).on('click', '#button-commission-remove', function() {
+$(document).delegate('#button-commission-remove', 'click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/removecommission&user_token={{ user_token }}&order_id={{ order_id }}',
 		type: 'post',
@@ -505,7 +505,7 @@ $(document).on('click', '#button-commission-remove', function() {
 			}
 
 			if (json['success']) {
-				$('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
 				$('#button-commission-remove').replaceWith('<button id="button-commission-add" data-toggle="tooltip" title="{{ button_commission_add }}" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i></button>');
 			}
@@ -516,7 +516,7 @@ $(document).on('click', '#button-commission-remove', function() {
 	});
 });
 
-$('#history').on('click', '.pagination a', function(e) {
+$('#history').delegate('.pagination a', 'click', function(e) {
 	e.preventDefault();
 
 	$('#history').load(this.href);
@@ -529,7 +529,7 @@ $('#button-history').on('click', function() {
 		url: '{{ catalog }}index.php?route=api/order/history&api_token={{ api_token }}&store_id={{ store_id }}&order_id={{ order_id }}',
 		type: 'post',
 		dataType: 'json',
-		data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + $('input[name=\'notify\']:checked').val() + '&override=' + $('input[name=\'override\']:checked').val() + '&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),
+		data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + ($('input[name=\'notify\']').prop('checked') ? 1 : 0) + '&override=' + ($('input[name=\'override\']').prop('checked') ? 1 : 0) + '&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),
 		beforeSend: function() {
 			$('#button-history').button('loading');
 		},
@@ -556,5 +556,6 @@ $('#button-history').on('click', function() {
 		}
 	});
 });
-//--></script>
+//--></script> 
+</div>
 {{ footer }}
